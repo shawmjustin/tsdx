@@ -6,7 +6,7 @@ export default function getInstallArgs(
 ) {
   switch (cmd) {
     case 'npm':
-      return ['install', ...packages, '--save-dev'];
+      return ['install', ...packages];
     case 'yarn':
       return ['add', ...packages];
   }

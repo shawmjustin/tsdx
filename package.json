@@ -1,6 +1,6 @@
 {
   "name": "tsdxw",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Justin Shaw <jshawspambox@yahoo.com>",
   "description": "Zero-config TypeScript package development - Fork of Jared Palmer's tsdx",
   "license": "MIT",

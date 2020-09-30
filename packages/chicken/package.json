@@ -1,0 +1,50 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "i": "npm i",
+    "ci": "npm ci",
+    "prepare": "rm -rf dist && ../../node_modules/.bin/webpack --mode development --config webpack.config.js"
+  },
+  "peerDependencies": {},
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "chicken",
+  "author": "Justin Shaw",
+  "module": "dist/chicken.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/chicken.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/chicken.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@vf-team5/logger": "^0.0.47",
+    "@vf-team5/types": "^0.0.47",
+    "aws-sdk": "^2.763.0",
+    "inversify": "^5.0.1",
+    "inversify-inject-decorators": "^3.1.0",
+    "reflect-metadata": "^0.1.13"
+  }
+}

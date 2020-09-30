@@ -175,11 +175,11 @@ prog
           overwrite: true,
         }
       );
-      // fix gitignore
-      await fs.move(
-        path.resolve(projectPath, './gitignore'),
-        path.resolve(projectPath, './.gitignore')
-      );
+      // // fix gitignore
+      // await fs.move(
+      //   path.resolve(projectPath, './gitignore'),
+      //   path.resolve(projectPath, './.gitignore')
+      // );
 
       // update license year and author
       let license: string = await fs.readFile(

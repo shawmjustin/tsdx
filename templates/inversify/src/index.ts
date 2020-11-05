@@ -2,25 +2,25 @@ import 'reflect-metadata';
 import { Container } from 'inversify';
 import { ConnectEvent } from '@vf-team5/types';
 import container from './dependencyContainer';
-import { ExampleController } from './controllers/controller';
+import { Controller } from './controllers/controller';
 import { Example } from './interfaces/interface';
 
-let cachedController: ExampleController;
+let cachedController: Controller;
 
 /**
  * @description Return the cached controller if it's cached, if not
  *
  * @param cached
- * @returns {ExampleController}
+ * @returns {Controller}
  */
 const loadController = async (
-  cached: ExampleController
-): Promise<ExampleController> => {
+  cached: Controller
+): Promise<Controller> => {
   if (cached) return cached;
 
   const dependencies = new Container();
   await dependencies.loadAsync(container);
-  cachedController = dependencies.resolve(ExampleController);
+  cachedController = dependencies.resolve(Controller);
   return cachedController;
 };
 
@@ -29,13 +29,17 @@ const loadController = async (
  * @returns
  */
 export const handler = async (event: ConnectEvent<any>): Promise<Example> => {
-  /**
-   * Fetch controller
-   */
-  const controller = await loadController(cachedController);
+  try {
+    /**
+     * Fetch controller
+     */
+    const controller = await loadController(cachedController);
 
-  /**
-   * Start the state machine execution
-   */
-  return controller.stub(event);
+    /**
+     * Start the state machine execution
+     */
+    return controller.stub(event);
+  } catch (error) {
+    throw new Error(error)
+  }
 };

@@ -7,18 +7,18 @@ import { Example } from '../interfaces/interface';
  * @author @jshaw-vf
  *
  * @export
- * @class ExampleControllerController
+ * @class Controller
  * @
  */
 @injectable()
-export class ExampleController {
+export class Controller {
   constructor(@inject(LoggerService) private logger: LoggerService) {}
 
   /**
    *
    * @param {ConnectEvent<any>} event
-   * @returns {Promise<ExampleController>}
-   * @memberof ExampleControllerController
+   * @returns {Promise<Controller>}
+   * @memberof ControllerController
    */
   async stub(event: ConnectEvent<any>): Promise<Example> {
     this.logger.info({ event }, 'set called');

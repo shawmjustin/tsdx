@@ -1,7 +1,7 @@
 import { AsyncContainerModule } from 'inversify';
 import { LoggerService } from '@vf-team5/logger';
 import constants from './constants';
-import { ExampleController } from './controllers/controller';
+import { Controller } from './controllers/controller';
 
 const container: AsyncContainerModule = new AsyncContainerModule(async bind => {
   /**
@@ -27,7 +27,7 @@ const container: AsyncContainerModule = new AsyncContainerModule(async bind => {
   /**
    * Controllers
    */
-  bind<ExampleController>(ExampleController).toSelf();
+  bind<Controller>(Controller).toSelf();
 });
 
 export default container;

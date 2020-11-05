@@ -7,18 +7,18 @@ import { Example } from '../interfaces/interface';
  * @author @jshaw-vf
  *
  * @export
- * @class OfferCallbackProcessor
+ * @class Processor
  * @
  */
 @injectable()
-export class OfferCallbackProcessor {
+export class Processor {
   constructor(@inject(LoggerService) private logger: LoggerService) {}
 
   /**
    *
    * @param {ConnectEvent<any>} event
    * @returns {Promise<any>}
-   * @memberof OfferCallbackProcessor
+   * @memberof Processor
    */
   async set(event: ConnectEvent<any>): Promise<Example> {
     this.logger.info({ event }, 'set called');
